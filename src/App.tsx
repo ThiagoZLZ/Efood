@@ -1,25 +1,27 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { GlobalCss } from './styles'
+import Homep from './Pages/Home'
+import PratosJaponeses from './Pages/Perfil/japoneses'
+import PratosItalianos from './Pages/Perfil/italianos'
+import PratosMexicanos from './Pages/Perfil/mexicanos'
+import PratosBrasileiros from './Pages/Perfil/brasileira'
+
+const Rotas = () => (
+  <Routes>
+    <Route path="/" element={<Homep />} />
+    <Route path="/pratosjaponeses" element={<PratosJaponeses />} />
+    <Route path="/pratositalianos" element={<PratosItalianos />} />
+    <Route path="/pratosmexicanos" element={<PratosMexicanos />} />
+    <Route path="/brasileiros" element={<PratosBrasileiros />} />
+  </Routes>
+)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <GlobalCss />
+      <Rotas />
+    </BrowserRouter>
   )
 }
 
