@@ -5,12 +5,14 @@ import { List } from './styles'
 export type Props = {
   title?: string
   Restaurantes: Restaurantes[]
+  Pratos?: boolean
+  PratosF?: boolean
 }
 
-const RestaurantList = ({ title, Restaurantes }: Props) => (
+const RestaurantList = ({ title, Restaurantes, Pratos, PratosF }: Props) => (
   <div>
     <h2>{title}</h2>
-    <List>
+    <List className={Pratos ? 'pratos-japoneses' : ''}>
       {Restaurantes.map((Restaurantes) => (
         <Restaurant
           key={Restaurantes.id}
@@ -23,6 +25,8 @@ const RestaurantList = ({ title, Restaurantes }: Props) => (
           id={Restaurantes.id}
           link={Restaurantes.link}
           tagContent={Restaurantes.tagContent}
+          mostrarEstrela={Restaurantes.mostrarEstrela}
+          PratosF={PratosF}
         />
       ))}
     </List>

@@ -12,14 +12,16 @@ export const Imagem = styled.div<{ imagem: string }>`
   padding-top: 30px;
 `
 export const Comida = styled.h2`
-  color: ${cores.dourado};
+  color: ${cores.branco};
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 100;
   max-width: 676px;
   margin-bottom: 220px;
+  font-family: Roboto, sans-serif;
 `
 export const Texto = styled.h2`
-  color: ${cores.dourado};
+  color: ${cores.branco};
   font-size: 42px;
   max-width: 676px;
+  font-family: Roboto, sans-serif;
 `

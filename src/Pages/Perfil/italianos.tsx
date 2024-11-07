@@ -3,75 +3,76 @@ import Restaurantes from '../../Models/Restaurantes'
 import Banner from '../../Components/Banner'
 import HeaderPratos from '../../Components/HeaderPratos'
 
-import fachadaItaliano from '../../assets/images/fachadaItaliano.jpg'
+import fachadaItaliano from '../../assets/images/heroImgPerfil.png'
 import pizza from '../../assets/images/pizza.png'
-import macarrao from '../../assets/images/Macarrao.jpg'
-import lasanha from '../../assets/images/Italiana/Lasanha.jpg'
-import osso from '../../assets/images/Italiana/Osso Buco.webp'
-import alla from '../../assets/images/Italiana/Pasta alla Carbonara.jpg'
-import tiramisu from '../../assets/images/Italiana/Tiramisu.webp'
 import Footer from '../../Components/Footer'
 
 const promomocoes: Restaurantes[] = [
   {
-    titulo: 'Pizza',
+    titulo: 'Pizza Marguerita',
     descricao:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     avaliacao: '',
     capa: pizza,
     infos: [],
     id: 1,
-    tagContent: 'Adicionar ao carrinho'
+    tagContent: 'Adicionar ao carrinho',
+    mostrarEstrela: false
   },
   {
-    titulo: 'Espaguete',
+    titulo: 'Pizza Marguerita',
     descricao:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     avaliacao: '',
-    capa: macarrao,
+    capa: pizza,
     infos: [],
     id: 2,
-    tagContent: 'Adicionar ao carrinho'
+    tagContent: 'Adicionar ao carrinho',
+    mostrarEstrela: false
   },
   {
-    titulo: 'Lasanha',
+    titulo: 'Pizza Marguerita',
     descricao:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     avaliacao: '',
-    capa: lasanha,
+    capa: pizza,
     infos: [],
     id: 3,
-    tagContent: 'Adicionar ao carrinho'
+    tagContent: 'Adicionar ao carrinho',
+    mostrarEstrela: false
   },
   {
-    titulo: 'Osso Buco',
+    titulo: 'Pizza Marguerita',
     descricao:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     avaliacao: '',
-    capa: osso,
+    capa: pizza,
     infos: [],
     id: 4,
-    tagContent: 'Adicionar ao carrinho'
+    tagContent: 'Adicionar ao carrinho',
+    mostrarEstrela: false
   },
   {
-    titulo: 'Pasta alla Carbonara',
+    titulo: 'Pizza Marguerita',
     descricao:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     avaliacao: '',
-    capa: alla,
+    capa: pizza,
     infos: [],
     id: 5,
-    tagContent: 'Adicionar ao carrinho'
+    tagContent: 'Adicionar ao carrinho',
+    mostrarEstrela: false
   },
   {
-    titulo: 'Tiramisu',
+    titulo: 'Pizza Marguerita',
     descricao:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     avaliacao: '',
-    capa: tiramisu,
+    capa: pizza,
     infos: [],
     id: 6,
-    tagContent: 'Adicionar ao carrinho'
+    tagContent: 'Adicionar ao carrinho',
+    mostrarEstrela: false
   }
 ]
 
@@ -81,9 +82,9 @@ const PratosJaponeses = () => (
     <Banner
       imagem={fachadaItaliano}
       comida="Italiana"
-      texto="A melhor MASA do mundo"
+      texto="La Dolce Vita Trattoria"
     />
-    <RestaurantList Restaurantes={promomocoes} />
+    <RestaurantList Restaurantes={promomocoes} Pratos={true} PratosF={true} />
     <Footer />
   </>
 )

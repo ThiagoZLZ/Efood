@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom'
 
 import { TagContainer } from '../Tag/styles'
 
-export const Card = styled.div`
+type CardProps = {
+  PratosF?: boolean
+}
+
+export const Card = styled.div<CardProps>`
   border: 1px solid ${cores.rosa};
   max-width: 472px;
   width: 100%;
@@ -13,12 +17,20 @@ export const Card = styled.div`
   background-color: ${cores.branco};
   position: relative;
 
+  ${(props) =>
+    props.PratosF &&
+    `
+      background-color: ${cores.vermelho};
+      color: ${cores.branco};
+      padding: 8px;
+    `}
+
   ${TagContainer} {
     margin-right: 8px;
   }
 `
 
-export const CardImage = styled.div`
+export const CardImage = styled.div<CardProps>`
   width: 100%;
   height: 210px;
   overflow-y: hidden;
@@ -26,6 +38,13 @@ export const CardImage = styled.div`
   img {
     width: 100%;
   }
+
+  ${(props) =>
+    props.PratosF &&
+    `
+      width: 100%;
+      height: 150px;
+    `}
 `
 
 export const CardHeader = styled.div`
@@ -49,7 +68,7 @@ export const CardInfos = styled.div`
     margin: 16px 0;
     text-decoration: none;
     font-size: 18px;
-    font-weight: bold;
+    font-family: Roboto, sans-serif;
   }
 `
 
@@ -61,20 +80,21 @@ export const Infos = styled.div`
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
-  color: inherit; /* Herdar a cor do elemento pai */
+  color: inherit;
 `
 
-// export const ButtonLink = styled(Link)`
-//   color: ${cores.branco};
-//   background-color: ${cores.fontColor};
-//   text-decoration: none;
-//   padding: 4px 6px;
-//   color: ${cores.bgFooter};
-//   font-weight: bold;
-// `
+export const ButtonLink = styled.button`
+  color: ${cores.branco};
+  background-color: ${cores.rosa};
+  text-decoration: none;
+  padding: 8px 90px;
+  color: ${cores.vermelho};
+  font-weight: bold;
+  font-family: Roboto, sans-serif;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
 
-// export const Infos = styled.div`
-//   position: absolute;
-//   top: 16px;
-//   right: 16px;
-// `
+  display: block;
+  margin: 0 auto;
+`

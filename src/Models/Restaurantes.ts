@@ -8,6 +8,7 @@ class Restaurantes {
   destaque?: boolean
   link?: string
   tagContent?: string
+  mostrarEstrela?: boolean
 
   constructor (
     titulo: string,
@@ -18,7 +19,8 @@ class Restaurantes {
     link: string,
     avaliacao: string,
     destaque?: boolean,
-    tagContent?: string
+    tagContent?: string,
+    mostrarEstrela?: boolean
   ) {
     this.titulo = titulo
     this.avaliacao = avaliacao
@@ -29,6 +31,7 @@ class Restaurantes {
     this.destaque = destaque
     this.link = link
     this.tagContent = tagContent
+    this. mostrarEstrela =  mostrarEstrela
   }
 }
 
