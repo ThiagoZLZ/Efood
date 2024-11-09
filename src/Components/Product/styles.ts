@@ -63,6 +63,7 @@ export const CardHeader = styled.div`
 
 export const CardInfos = styled.div`
   padding: 8px;
+  border: 1px solid ${cores.vermelho};
 
   p {
     margin: 16px 0;
@@ -87,7 +88,7 @@ export const ButtonLink = styled.button`
   color: ${cores.branco};
   background-color: ${cores.rosa};
   text-decoration: none;
-  padding: 8px 90px;
+  padding: 8px 70px;
   color: ${cores.vermelho};
   font-weight: bold;
   font-family: Roboto, sans-serif;

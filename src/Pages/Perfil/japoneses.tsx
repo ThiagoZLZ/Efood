@@ -84,7 +84,9 @@ const PratosJaponeses = () => (
       comida="Japonesa"
       texto="Japonês de Verdade"
     />
-    <RestaurantList Restaurantes={promomocoes} Pratos={true} PratosF={true} />
+    <div className="container">
+      <RestaurantList Restaurantes={promomocoes} Pratos={true} PratosF={true} />
+    </div>
     <Footer />
   </>
 )
