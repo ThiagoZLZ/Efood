@@ -1,5 +1,8 @@
 import estrela from '../../assets/icons/estrela.png'
 
+import pizzaM from '../../assets/images/image3.png'
+import close from '../../assets/icons/close.png'
+
 import Tag from '../Tag'
 import {
   Card,
@@ -8,8 +11,11 @@ import {
   CardImage,
   Infos,
   StyledLink,
-  ButtonLink
+  ButtonLink,
+  Modal,
+  ModalConteudo
 } from './styles'
+import { useState } from 'react'
 
 type Props = {
   titulo: string
@@ -37,37 +43,69 @@ const Restaurant = ({
   tagContent = 'Saiba mais',
   mostrarEstrela = true,
   PratosF = false
-}: Props) => (
-  <Card PratosF={PratosF}>
-    <StyledLink to={link || '#'}>
-      <CardImage PratosF={PratosF}>
-        <img src={capa} alt="Foto do restaurante" />
-      </CardImage>
-      <CardInfos>
-        <Infos>
-          {destaque && <Tag size="big">Destaque da semana</Tag>}
-          {infos.map((info) => (
-            <Tag size="small" key={info}>
-              {info}
-            </Tag>
-          ))}
-        </Infos>
-        <CardHeader>
-          <h3>{titulo}</h3>
-          <div>
-            <h3>{avaliacao}</h3>
-            {mostrarEstrela && <img src={estrela} alt="avaliação" />}
+}: Props) => {
+  const [modalEstaAberto, setModalEstaAberto] = useState(false)
+
+  return (
+    <>
+      <Card PratosF={PratosF}>
+        <StyledLink to={link || '#'}>
+          <CardImage PratosF={PratosF}>
+            <img src={capa} alt="Foto do restaurante" />
+          </CardImage>
+          <CardInfos>
+            <Infos>
+              {destaque && <Tag size="big">Destaque da semana</Tag>}
+              {infos.map((info) => (
+                <Tag size="small" key={info}>
+                  {info}
+                </Tag>
+              ))}
+            </Infos>
+            <CardHeader>
+              <h3>{titulo}</h3>
+              <div>
+                <h3>{avaliacao}</h3>
+                {mostrarEstrela && <img src={estrela} alt="avaliação" />}
+              </div>
+            </CardHeader>
+            <p>{descricao}</p>
+            {PratosF ? (
+              <ButtonLink onClick={() => setModalEstaAberto(true)}>
+                Adicionar ao Carrinho
+              </ButtonLink>
+            ) : (
+              <Tag size="medio">{tagContent}</Tag>
+            )}
+          </CardInfos>
+        </StyledLink>
+      </Card>
+      <Modal className={modalEstaAberto ? 'Visible' : ''}>
+        <ModalConteudo>
+          <div className="container">
+            <img src={pizzaM} alt="Foto do prato" />
+            <div>
+              <div>
+                <h2>{titulo}</h2>
+                <img
+                  src={close}
+                  onClick={() => setModalEstaAberto(false)}
+                  alt="Clique para fechar"
+                />
+              </div>
+              <p>{descricao}</p>
+              <p>Serve:</p>
+              <button>Adicionar ao Carrinho</button>
+            </div>
           </div>
-        </CardHeader>
-        <p>{descricao}</p>
-        {PratosF ? (
-          <ButtonLink>Adicionar ao Carrinho</ButtonLink>
-        ) : (
-          <Tag size="medio">{tagContent}</Tag>
-        )}
-      </CardInfos>
-    </StyledLink>
-  </Card>
-)
+        </ModalConteudo>
+        <div
+          className="overlay"
+          onClick={() => setModalEstaAberto(false)}
+        ></div>
+      </Modal>
+    </>
+  )
+}
 
 export default Restaurant
