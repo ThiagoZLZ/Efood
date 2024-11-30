@@ -21,14 +21,20 @@ type Props = {
   titulo: string
   avaliacao: string
   descricao: string
+  cardapio: string
   capa: string
   id: number
-  infos: string[]
+  tipo: string[]
   destaque?: boolean
   link?: string
   tagContent?: string
   mostrarEstrela?: boolean
   PratosF?: boolean
+  nome: string
+  porcao: string
+  foto: string
+  preco: number
+  destacado: boolean
 }
 
 const Restaurant = ({
@@ -36,7 +42,7 @@ const Restaurant = ({
   avaliacao,
   descricao,
   capa,
-  infos,
+  tipo,
   destaque,
   id,
   link,
@@ -56,9 +62,9 @@ const Restaurant = ({
           <CardInfos>
             <Infos>
               {destaque && <Tag size="big">Destaque da semana</Tag>}
-              {infos.map((info) => (
-                <Tag size="small" key={info}>
-                  {info}
+              {tipo.map((tipo) => (
+                <Tag size="small" key={tipo}>
+                  {tipo}
                 </Tag>
               ))}
             </Infos>

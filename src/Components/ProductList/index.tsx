@@ -1,10 +1,10 @@
-import Restaurantes from '../../Models/Restaurantes'
 import Restaurant from '../Product'
 import { List } from './styles'
+import { Restaurante } from '../../Pages/Home'
 
 export type Props = {
   title?: string
-  Restaurantes: Restaurantes[]
+  Restaurantes: Restaurante[]
   Pratos?: boolean
   PratosF?: boolean
 }
@@ -20,13 +20,15 @@ const RestaurantList = ({ title, Restaurantes, Pratos, PratosF }: Props) => (
           descricao={Restaurantes.descricao}
           avaliacao={Restaurantes.avaliacao}
           capa={Restaurantes.capa}
-          infos={Restaurantes.infos}
-          destaque={Restaurantes.destaque}
+          cardapio={Restaurantes.cardapio}
+          nome={Restaurantes.nome}
+          porcao={Restaurantes.porcao}
+          destacado={Restaurantes.destacado}
           id={Restaurantes.id}
-          link={Restaurantes.link}
-          tagContent={Restaurantes.tagContent}
-          mostrarEstrela={Restaurantes.mostrarEstrela}
           PratosF={PratosF}
+          foto={Restaurantes.foto}
+          preco={Restaurantes.preco}
+          tipo={Array.isArray(Restaurantes.tipo) ? Restaurantes.tipo : []}
         />
       ))}
     </List>

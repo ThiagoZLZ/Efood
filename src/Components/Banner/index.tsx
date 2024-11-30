@@ -1,12 +1,12 @@
 import { Imagem, Texto, Comida } from './styles'
 
+import { Restaurante } from '../../Pages/Home/index'
+
 type BannerImagem = {
   imagem: string
   texto: string
   comida: string
 }
-
-// import bannerImg from '../../assets/images/heroImgPerfil.png'
 
 const Banner = ({ imagem, texto, comida }: BannerImagem) => (
   <Imagem imagem={imagem}>
