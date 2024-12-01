@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-export const Imagem = styled.div<{ imagem: string }>`
+export const Imagem = styled.div`
   width: 100%;
   height: 450px;
   display: block;
-  background-image: url(${(props) => props.imagem});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

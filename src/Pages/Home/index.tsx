@@ -1,9 +1,6 @@
 import Home from '../../Components/Header'
 import RestaurantList from '../../Components/ProductList'
 
-import japonesa from '../../assets/images/imagem.png'
-import italiana from '../../assets/images/image1.png'
-
 import Footer from '../../Components/Footer'
 import { useEffect, useState } from 'react'
 
@@ -14,12 +11,15 @@ export type Restaurante = {
   tipo: string[]
   avaliacao: string
   capa: string
-  cardapio: string
-  nome: string
   descricao: string
-  porcao: string
-  foto: string
-  preco: number
+  cardapio: {
+    foto: string
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
 
 const Homep = () => {

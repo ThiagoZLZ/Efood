@@ -2,8 +2,6 @@ import RestaurantList from '../../Components/ProductList'
 import Banner from '../../Components/Banner'
 import HeaderPratos from '../../Components/HeaderPratos'
 
-import fachadaItaliano from '../../assets/images/heroImgPerfil.png'
-import pizza from '../../assets/images/pizza.png'
 import Footer from '../../Components/Footer'
 import { useEffect, useState } from 'react'
 
@@ -14,12 +12,15 @@ export type Restaurante = {
   tipo: string[]
   avaliacao: string
   capa: string
-  cardapio: string
-  nome: string
   descricao: string
-  porcao: string
-  foto: string
-  preco: number
+  cardapio: {
+    foto: string
+    preco: number
+    id: number
+    nome: string
+    descricao: string
+    porcao: string
+  }
 }
 
 const PratosItalianos = () => {
@@ -34,11 +35,7 @@ const PratosItalianos = () => {
   return (
     <>
       <HeaderPratos />
-      <Banner
-        imagem={fachadaItaliano}
-        comida="Italiana"
-        texto="La Dolce Vita Trattoria"
-      />
+      <Banner />
       <div className="container">
         <RestaurantList
           Restaurantes={promomocoes}

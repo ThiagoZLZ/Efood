@@ -20,14 +20,13 @@ const RestaurantList = ({ title, Restaurantes, Pratos, PratosF }: Props) => (
           descricao={Restaurantes.descricao}
           avaliacao={Restaurantes.avaliacao}
           capa={Restaurantes.capa}
-          cardapio={Restaurantes.cardapio}
-          nome={Restaurantes.nome}
-          porcao={Restaurantes.porcao}
+          nome={Restaurantes.cardapio.nome}
+          porcao={Restaurantes.cardapio.porcao}
           destacado={Restaurantes.destacado}
           id={Restaurantes.id}
           PratosF={PratosF}
-          foto={Restaurantes.foto}
-          preco={Restaurantes.preco}
+          foto={Restaurantes.cardapio.foto}
+          preco={Restaurantes.cardapio.preco}
           tipo={Array.isArray(Restaurantes.tipo) ? Restaurantes.tipo : []}
         />
       ))}
