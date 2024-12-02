@@ -1,5 +1,5 @@
 import Home from '../../Components/Header'
-import RestaurantList from '../../Components/ProductList'
+import RestaurantList from '../../Components/RestaurantList'
 
 import Footer from '../../Components/Footer'
 import { useEffect, useState } from 'react'

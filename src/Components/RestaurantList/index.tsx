@@ -1,4 +1,4 @@
-import Product from '../Product'
+import Restaurant from '../Restaurante'
 import { List } from './styles'
 import { Restaurante } from '../../Pages/Home'
 
@@ -9,20 +9,20 @@ export type Props = {
   PratosF?: boolean
 }
 
-const ProductList = ({ title, Restaurantes, Pratos }: Props) => (
+const RestaurantList = ({ title, Restaurantes, Pratos, PratosF }: Props) => (
   <div>
     <h2>{title}</h2>
     <List className={Pratos ? 'pratos-japoneses' : ''}>
       {Restaurantes.map((Restaurantes) => (
-        <Product
+        <Restaurant
           key={Restaurantes.id}
           titulo={Restaurantes.titulo}
           descricao={Restaurantes.descricao}
           avaliacao={Restaurantes.avaliacao}
           capa={Restaurantes.capa}
+          destacado={Restaurantes.destacado}
           id={Restaurantes.id}
           foto={Restaurantes.cardapio.foto}
-          nome={Restaurantes.cardapio.nome}
           tipo={Array.isArray(Restaurantes.tipo) ? Restaurantes.tipo : []}
         />
       ))}
@@ -30,4 +30,4 @@ const ProductList = ({ title, Restaurantes, Pratos }: Props) => (
   </div>
 )
 
-export default ProductList
+export default RestaurantList

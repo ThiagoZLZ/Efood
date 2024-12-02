@@ -1,9 +1,10 @@
-import RestaurantList from '../../Components/ProductList'
+import Product from '../../Components/Product'
 import Banner from '../../Components/Banner'
 import HeaderPratos from '../../Components/HeaderPratos'
 
 import Footer from '../../Components/Footer'
 import { useEffect, useState } from 'react'
+import ProductList from '../../Components/ProductList'
 
 export type Restaurante = {
   id: number
@@ -37,11 +38,7 @@ const PratosItalianos = () => {
       <HeaderPratos />
       <Banner />
       <div className="container">
-        <RestaurantList
-          Restaurantes={promomocoes}
-          Pratos={true}
-          PratosF={true}
-        />
+        <ProductList Restaurantes={promomocoes} Pratos={true} PratosF={true} />
       </div>
       <Footer />
     </>
