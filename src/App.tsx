@@ -6,7 +6,7 @@ import PratosItalianos from './Pages/Perfil/italianos'
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Homep />} />
-    <Route path="/pratositalianos" element={<PratosItalianos />} />
+    <Route path="/pratos/:id" element={<PratosItalianos />} />
   </Routes>
 )
 

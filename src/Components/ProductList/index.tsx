@@ -16,14 +16,12 @@ const ProductList = ({ title, Restaurantes, Pratos }: Props) => (
       {Restaurantes.map((Restaurantes) => (
         <Product
           key={Restaurantes.id}
-          titulo={Restaurantes.titulo}
-          descricao={Restaurantes.descricao}
-          avaliacao={Restaurantes.avaliacao}
-          capa={Restaurantes.capa}
-          id={Restaurantes.id}
+          descricao={Restaurantes.cardapio.descricao}
+          id={Restaurantes.cardapio.id}
           foto={Restaurantes.cardapio.foto}
           nome={Restaurantes.cardapio.nome}
-          tipo={Array.isArray(Restaurantes.tipo) ? Restaurantes.tipo : []}
+          porcao={Restaurantes.cardapio.porcao}
+          preco={Restaurantes.cardapio.preco}
         />
       ))}
     </List>

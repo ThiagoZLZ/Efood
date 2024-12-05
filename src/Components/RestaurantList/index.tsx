@@ -22,7 +22,6 @@ const RestaurantList = ({ title, Restaurantes, Pratos, PratosF }: Props) => (
           capa={Restaurantes.capa}
           destacado={Restaurantes.destacado}
           id={Restaurantes.id}
-          foto={Restaurantes.cardapio.foto}
           tipo={Array.isArray(Restaurantes.tipo) ? Restaurantes.tipo : []}
         />
       ))}

@@ -7,7 +7,8 @@ import {
   CardHeader,
   CardImage,
   Infos,
-  StyledLink
+  StyledLink,
+  ButtonLink
 } from './styles'
 
 type Props = {
@@ -21,7 +22,6 @@ type Props = {
   link?: string
   tagContent?: string
   destacado: boolean
-  foto: string
 }
 
 const Restaurant = ({
@@ -29,12 +29,10 @@ const Restaurant = ({
   avaliacao,
   descricao,
   capa,
-  foto,
   tipo,
   destaque,
   id,
-  link,
-  tagContent = 'Saiba mais'
+  link
 }: Props) => {
   return (
     <>
@@ -60,7 +58,7 @@ const Restaurant = ({
               </div>
             </CardHeader>
             <p>{descricao}</p>
-            <Tag size="medio">{tagContent}</Tag>
+            <ButtonLink to={`/pratos/${id}`}>Saiba mais</ButtonLink>
           </CardInfos>
         </StyledLink>
       </Card>
