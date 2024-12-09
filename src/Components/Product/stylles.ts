@@ -2,28 +2,34 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 import { Link } from 'react-router-dom'
 
-export const Carde = styled.div`
-  border: 1px solid ${cores.rosa};
+type CardProps = {
+  PratosF?: boolean
+}
+
+export const Carde = styled.div<CardProps>`
+  border: 8px solid ${cores.vermelho};
   max-width: 472px;
   width: 100%;
   font-size: 14px;
   overflow: hidden;
   background-color: ${cores.vermelho};
   position: relative;
-  color: ${cores.rosa};
+  color: ${cores.branco};
+  }
 `
 
-export const CardImage = styled.div`
+export const CardeImage = styled.div`
   width: 100%;
   height: 210px;
   overflow-y: hidden;
 
   img {
-    width: 100%;
+    height: 200px;
+    width: 310px;
   }
 `
 
-export const CardHeader = styled.div`
+export const CardeHeader = styled.div`
   font-size: 18px;
   display: flex;
   justify-content: space-between;
@@ -37,9 +43,10 @@ export const CardHeader = styled.div`
   }
 `
 
-export const CardInfos = styled.div`
+export const CardeInfos = styled.div`
   padding: 8px;
   border: 1px solid ${cores.vermelho};
+  color: ${cores.branco};
 
   p {
     margin: 16px 0;
@@ -64,7 +71,7 @@ export const ButtonLink = styled.button`
   color: ${cores.branco};
   background-color: ${cores.rosa};
   text-decoration: none;
-  padding: 8px 70px;
+  padding: 8px 75px;
   color: ${cores.vermelho};
   font-weight: bold;
   font-family: Roboto, sans-serif;
@@ -115,7 +122,7 @@ export const ModalConteudo = styled.div`
     color: ${cores.branco};
 
     > img {
-      width: 280px;
+      width: 290px;
       height: 280px;
       margin-right: 24px;
       object-fit: cover;

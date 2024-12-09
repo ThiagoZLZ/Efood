@@ -1,31 +1,33 @@
 import Product from '../Product'
 import { List } from './styles'
-import { Restaurante } from '../../Pages/Home'
+import { CardapioItem } from '../../Pages/Home'
 
 export type Props = {
   title?: string
-  Restaurantes: Restaurante[]
+  CardapioItem: CardapioItem[]
   Pratos?: boolean
-  PratosF?: boolean
 }
 
-const ProductList = ({ title, Restaurantes, Pratos }: Props) => (
-  <div>
-    <h2>{title}</h2>
-    <List className={Pratos ? 'pratos-japoneses' : ''}>
-      {Restaurantes.map((Restaurantes) => (
-        <Product
-          key={Restaurantes.id}
-          descricao={Restaurantes.cardapio.descricao}
-          id={Restaurantes.cardapio.id}
-          foto={Restaurantes.cardapio.foto}
-          nome={Restaurantes.cardapio.nome}
-          porcao={Restaurantes.cardapio.porcao}
-          preco={Restaurantes.cardapio.preco}
-        />
-      ))}
-    </List>
-  </div>
-)
+const ProductList = ({ title, CardapioItem, Pratos }: Props) => {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <List className={Pratos ? 'pratos-japoneses' : ''}>
+        {CardapioItem.map((Item) => (
+          <li key={Item.id}>
+            <Product
+              descricao={Item.descricao}
+              id={Item.id}
+              foto={Item.foto}
+              nome={Item.nome}
+              porcao={Item.porcao}
+              preco={Item.preco}
+            />
+          </li>
+        ))}
+      </List>
+    </div>
+  )
+}
 
 export default ProductList

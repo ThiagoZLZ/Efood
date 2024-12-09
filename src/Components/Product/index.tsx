@@ -1,12 +1,10 @@
-import { useParams } from 'react-router-dom'
-import pizzaM from '../../assets/images/image3.png'
 import close from '../../assets/icons/close.png'
 
 import {
   Carde,
-  CardInfos,
-  CardHeader,
-  CardImage,
+  CardeInfos,
+  CardeHeader,
+  CardeImage,
   ButtonLink,
   Modal,
   ModalConteudo
@@ -22,29 +20,44 @@ type Props = {
   preco: number
 }
 
-const Product = ({ id, nome, descricao, foto, porcao, preco }: Props) => {
+const Product = ({ nome, descricao, foto, porcao, preco }: Props) => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
+
+  const compactaDescricao = (descricao: string) => {
+    if (descricao.length > 150) {
+      return descricao.slice(0, 150) + '...'
+    }
+    return descricao
+  }
+
+  const formataPreco = (preco = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
 
   return (
     <>
+      {/* <Carde to={`/pratos/${id}`}> */}
       <Carde>
-        <CardImage>
+        <CardeImage>
           <img src={foto} alt="Foto do prato" />
-        </CardImage>
-        <CardInfos>
-          <CardHeader>
+        </CardeImage>
+        <CardeInfos>
+          <CardeHeader>
             <h3>{nome}</h3>
-          </CardHeader>
-          <p>{descricao}</p>
+          </CardeHeader>
+          <p>{compactaDescricao(descricao)}</p>
           <ButtonLink onClick={() => setModalEstaAberto(true)}>
             Adicionar ao Carrinho
           </ButtonLink>
-        </CardInfos>
+        </CardeInfos>
       </Carde>
       <Modal className={modalEstaAberto ? 'Visible' : ''}>
         <ModalConteudo>
           <div className="container">
-            <img src={pizzaM} alt="Foto do prato" />
+            <img src={foto} alt="Foto do prato" />
             <div>
               <div>
                 <h2>{nome}</h2>
@@ -56,7 +69,9 @@ const Product = ({ id, nome, descricao, foto, porcao, preco }: Props) => {
               </div>
               <p>{descricao}</p>
               <p>Serve: {porcao}</p>
-              <button>{`Adicionar ao Carrinho - ${preco}`}</button>
+              <button>{`Adicionar ao Carrinho - ${formataPreco(
+                preco
+              )}`}</button>
             </div>
           </div>
         </ModalConteudo>

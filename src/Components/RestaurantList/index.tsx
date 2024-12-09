@@ -9,7 +9,7 @@ export type Props = {
   PratosF?: boolean
 }
 
-const RestaurantList = ({ title, Restaurantes, Pratos, PratosF }: Props) => (
+const RestaurantList = ({ title, Restaurantes, Pratos }: Props) => (
   <div>
     <h2>{title}</h2>
     <List className={Pratos ? 'pratos-japoneses' : ''}>

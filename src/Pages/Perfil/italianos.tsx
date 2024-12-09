@@ -1,44 +1,51 @@
-import Product from '../../Components/Product'
-import Banner from '../../Components/Banner'
-import HeaderPratos from '../../Components/HeaderPratos'
-
-import Footer from '../../Components/Footer'
+import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import ProductList from '../../Components/ProductList'
+import Banner from '../../Components/Banner'
+import HeaderPratos from '../../Components/HeaderPratos'
+import Footer from '../../Components/Footer'
+
+export interface CardapioItem {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
 
 export type Restaurante = {
   id: number
   titulo: string
   destacado: boolean
-  tipo: string[]
+  tipo: string
   avaliacao: string
   capa: string
   descricao: string
-  cardapio: {
-    foto: string
-    preco: number
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
+  cardapio: CardapioItem[]
 }
 
 const PratosItalianos = () => {
-  const [promomocoes, setPromomocoes] = useState<Restaurante[]>([])
+  const { id } = useParams<{ id: string }>()
+  const [cardapio, setCardapio] = useState<CardapioItem[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
-      .then((res) => setPromomocoes(res))
-  }, [])
+      .then((data: Restaurante[]) => {
+        const restaurante = data.find((r) => r.id === parseInt(id || '', 10))
+        if (restaurante) {
+          setCardapio(restaurante.cardapio)
+        }
+      })
+  }, [id])
 
   return (
     <>
       <HeaderPratos />
       <Banner />
       <div className="container">
-        <ProductList Restaurantes={promomocoes} Pratos={true} PratosF={true} />
+        <ProductList CardapioItem={cardapio} />
       </div>
       <Footer />
     </>

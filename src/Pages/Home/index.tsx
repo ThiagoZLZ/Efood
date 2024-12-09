@@ -1,40 +1,43 @@
+import { useEffect, useState } from 'react'
 import Home from '../../Components/Header'
 import RestaurantList from '../../Components/RestaurantList'
-
 import Footer from '../../Components/Footer'
-import { useEffect, useState } from 'react'
+
+export interface CardapioItem {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
 
 export type Restaurante = {
   id: number
   titulo: string
   destacado: boolean
-  tipo: string[]
+  tipo: string
   avaliacao: string
   capa: string
   descricao: string
-  cardapio: {
-    foto: string
-    preco: number
-    id: number
-    nome: string
-    descricao: string
-    porcao: string
-  }
+  cardapio: CardapioItem[]
 }
 
 const Homep = () => {
-  const [promomocoes, setPromomocoes] = useState<Restaurante[]>([])
+  const [restaurantes, setRestaurantes] = useState<Restaurante[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
-      .then((res) => setPromomocoes(res))
+      .then((res: Restaurante[]) => {
+        setRestaurantes(res)
+      })
   }, [])
 
   return (
     <>
       <Home />
-      <RestaurantList Restaurantes={promomocoes} />
+      <RestaurantList Restaurantes={restaurantes} />
       <Footer />
     </>
   )
