@@ -1,14 +1,14 @@
 import estrela from '../../assets/icons/estrela.png'
 
-import Tag from '../Tag'
 import {
   Card,
   CardInfos,
   CardHeader,
   CardImage,
-  Infos,
   StyledLink,
-  ButtonLink
+  ButtonLink,
+  TagDestaque,
+  TagNacionalidade
 } from './styles'
 
 type Props = {
@@ -40,16 +40,12 @@ const Restaurant = ({
         <StyledLink to={link || '#'}>
           <CardImage>
             <img src={capa} alt="Foto do restaurante" />
+            {tipo.includes('italiana') && (
+              <TagDestaque>Destaque da semana</TagDestaque>
+            )}
+            <TagNacionalidade>{tipo}</TagNacionalidade>
           </CardImage>
           <CardInfos>
-            <Infos>
-              {destaque && <Tag size="big">Destaque da semana</Tag>}
-              {tipo.map((tipo) => (
-                <Tag size="small" key={tipo}>
-                  {tipo}
-                </Tag>
-              ))}
-            </Infos>
             <CardHeader>
               <h3>{titulo}</h3>
               <div>

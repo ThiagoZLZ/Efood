@@ -9,7 +9,7 @@ type CardProps = {
 }
 
 export const Card = styled.div<CardProps>`
-  border: 1px solid ${cores.rosa};
+  border: 3px solid ${cores.vermelho};
   max-width: 472px;
   width: 100%;
   font-size: 14px;
@@ -63,7 +63,6 @@ export const CardHeader = styled.div`
 
 export const CardInfos = styled.div`
   padding: 8px;
-  border: 1px solid ${cores.vermelho};
 
   p {
     margin: 16px 0;
@@ -101,4 +100,26 @@ export const ButtonLink = styled(Link)`
   margin-left: 8px;
   text-align: center;
   border-radius: 5px;
+`
+
+export const TagDestaque = styled.span`
+  position: absolute;
+  top: 16px;
+  right: 90px;
+  padding: 8px;
+  background-color: ${cores.vermelho};
+  color: white;
+  font-size: 12px;
+  border-radius: 10%;
+`
+
+export const TagNacionalidade = styled.span`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 10px;
+  background-color: ${cores.vermelho};
+  color: white;
+  font-size: 12px;
+  border-radius: 10%;
 `

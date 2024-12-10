@@ -16,7 +16,7 @@ export type Restaurante = {
   id: number
   titulo: string
   destacado: boolean
-  tipo: string
+  tipo: string[]
   avaliacao: string
   capa: string
   descricao: string
