@@ -162,6 +162,7 @@ export const ModalConteudo = styled.div`
         font-weight: 700;
         background-color: ${cores.rosa};
         color: ${cores.vermelho};
+        cursor: pointer;
       }
     }
   }

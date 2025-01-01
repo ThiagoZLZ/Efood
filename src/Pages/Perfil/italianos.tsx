@@ -1,55 +1,33 @@
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import ProductList from '../../Components/ProductList'
 import Banner from '../../Components/Banner'
 import HeaderPratos from '../../Components/HeaderPratos'
 import Footer from '../../Components/Footer'
 
-export interface CardapioItem {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
+import { useGetFeatureEfoodQuery } from '../../Services/api'
 
-export type Restaurante = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: string
-  capa: string
-  descricao: string
-  cardapio: CardapioItem[]
+type PratosParams = {
+  id: string
 }
 
 const PratosItalianos = () => {
-  const { id } = useParams<{ id: string }>()
-  const [cardapio, setCardapio] = useState<CardapioItem[]>([])
+  const { id } = useParams() as PratosParams
+  const { data: Cardapio } = useGetFeatureEfoodQuery(id)
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((data: Restaurante[]) => {
-        const restaurante = data.find((r) => r.id === parseInt(id || '', 10))
-        if (restaurante) {
-          setCardapio(restaurante.cardapio)
-        }
-      })
-  }, [id])
+  if (Cardapio) {
+    return (
+      <>
+        <HeaderPratos />
+        <Banner />
+        <div className="container">
+          <ProductList CardapioItem={Cardapio?.cardapio ?? []} />
+        </div>
+        <Footer />
+      </>
+    )
+  }
 
-  return (
-    <>
-      <HeaderPratos />
-      <Banner />
-      <div className="container">
-        <ProductList CardapioItem={cardapio} />
-      </div>
-      <Footer />
-    </>
-  )
+  return <h4>Carregando...</h4>
 }
 
 export default PratosItalianos

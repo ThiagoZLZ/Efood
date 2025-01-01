@@ -3,20 +3,15 @@ import { Imagem, Texto, Comida } from './styles'
 import { Restaurante } from '../../Pages/Home'
 import { useParams } from 'react-router-dom'
 
-const Banner = () => {
-  const [pratos, setPratos] = useState<Restaurante | null>(null) // Inicia como 'null'
-  const teste = useParams()
+import { useGetFeatureEfoodQuery } from '../../Services/api'
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((data) => {
-        const id = Number(teste.id) // Converte para número
-        if (!isNaN(id)) {
-          setPratos(data[id - 1])
-        }
-      })
-  }, [])
+type Params = {
+  id: string
+}
+
+const Banner = () => {
+  const { id } = useParams<Params>()
+  const { data: pratos, isLoading } = useGetFeatureEfoodQuery(id || '')
 
   // Exibe um fallback se 'pratos' ainda não foi carregado
   if (!pratos) {

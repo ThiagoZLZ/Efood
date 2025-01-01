@@ -9,7 +9,7 @@ type CardProps = {
 }
 
 export const Card = styled.div<CardProps>`
-  border: 3px solid ${cores.vermelho};
+  border: 2px solid ${cores.vermelho};
   max-width: 472px;
   width: 100%;
   font-size: 14px;

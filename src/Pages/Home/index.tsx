@@ -3,6 +3,8 @@ import Home from '../../Components/Header'
 import RestaurantList from '../../Components/RestaurantList'
 import Footer from '../../Components/Footer'
 
+import { useGetHomePageQuery } from '../../Services/api'
+
 export interface CardapioItem {
   foto: string
   preco: number
@@ -24,15 +26,7 @@ export type Restaurante = {
 }
 
 const Homep = () => {
-  const [restaurantes, setRestaurantes] = useState<Restaurante[]>([])
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res: Restaurante[]) => {
-        setRestaurantes(res)
-      })
-  }, [])
+  const { data: restaurantes = [] } = useGetHomePageQuery()
 
   return (
     <>

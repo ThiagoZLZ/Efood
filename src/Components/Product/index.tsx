@@ -1,4 +1,8 @@
+import { useDispatch } from 'react-redux'
 import close from '../../assets/icons/close.png'
+import { CardapioItem } from '../../Pages/Home'
+
+import { add, open } from '../../Store/reducers/cart'
 
 import {
   Carde,
@@ -20,8 +24,22 @@ type Props = {
   preco: number
 }
 
+export const formataPreco = (preco = 0) => {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
 const Product = ({ nome, descricao, foto, porcao, preco }: Props) => {
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    const item = { nome, descricao, foto, porcao, preco, id: Math.random() }
+    dispatch(add(item))
+    dispatch(open())
+  }
 
   const compactaDescricao = (descricao: string) => {
     if (descricao.length > 150) {
@@ -30,16 +48,8 @@ const Product = ({ nome, descricao, foto, porcao, preco }: Props) => {
     return descricao
   }
 
-  const formataPreco = (preco = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
-
   return (
     <>
-      {/* <Carde to={`/pratos/${id}`}> */}
       <Carde>
         <CardeImage>
           <img src={foto} alt="Foto do prato" />
@@ -69,9 +79,9 @@ const Product = ({ nome, descricao, foto, porcao, preco }: Props) => {
               </div>
               <p>{descricao}</p>
               <p>Serve: {porcao}</p>
-              <button>{`Adicionar ao Carrinho - ${formataPreco(
-                preco
-              )}`}</button>
+              <button onClick={addToCart}>
+                {`Adicionar ao Carrinho - ${formataPreco(preco)}`}
+              </button>
             </div>
           </div>
         </ModalConteudo>

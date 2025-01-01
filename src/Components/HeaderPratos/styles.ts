@@ -18,6 +18,7 @@ export const Branding = styled.img`
   width: 125px;
   height: 57.5px;
   margin-top: 39px;
+  cursor: pointer;
 `
 export const LinkRestaurantes = styled.a`
   font-size: 18px;
@@ -27,9 +28,11 @@ export const LinkRestaurantes = styled.a`
   margin-top: 39px;
 `
 
-export const TextCart = styled.p`
+export const TextCart = styled.a`
   font-size: 18px;
   font-weight: bold;
   margin-top: 39px;
   cursor: pointer;
+  text-decoration: none;
+  color: ${cores.vermelho};
 `
