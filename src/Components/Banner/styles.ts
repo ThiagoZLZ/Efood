@@ -30,7 +30,7 @@ export const Comida = styled.h2`
   max-width: 676px;
   margin-bottom: 220px;
   font-family: Roboto, sans-serif;
-  z-index: 2;
+  z-index: 1;
   position: absolute;
   top: 30px; /* Ajuste conforme necessário */
   left: 25%;

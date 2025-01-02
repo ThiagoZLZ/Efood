@@ -91,7 +91,7 @@ export const Modal = styled.div`
   height: 100%;
   justify-content: center;
   align-items: center;
-  z-index: 1;
+  z-index: 3;
   display: none;
 
   &.Visible {
