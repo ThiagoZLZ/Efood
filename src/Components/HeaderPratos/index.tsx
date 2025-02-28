@@ -1,5 +1,5 @@
 import logo from '../../assets/icons/logo.png'
-import { HeaderStyle, Branding, LinkRestaurantes, TextCart } from './styles'
+import * as S from './styles'
 
 import { open } from '../../Store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,17 +14,17 @@ const HeaderPratos = () => {
   }
 
   return (
-    <HeaderStyle>
+    <S.HeaderStyle>
       <div className="container">
-        <LinkRestaurantes href="/">Restaurantes</LinkRestaurantes>
+        <S.LinkRestaurantes href="/">Restaurantes</S.LinkRestaurantes>
         <a href="/">
-          <Branding src={logo} alt="Logo do restaurante" />
+          <S.Branding src={logo} alt="Logo do restaurante" />
         </a>
-        <TextCart onClick={openCart}>
+        <S.TextCart onClick={openCart}>
           {items.length} produto(s) no carrinho
-        </TextCart>
+        </S.TextCart>
       </div>
-    </HeaderStyle>
+    </S.HeaderStyle>
   )
 }
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import Home from '../../Components/Header'
 import RestaurantList from '../../Components/RestaurantList'
 import Footer from '../../Components/Footer'

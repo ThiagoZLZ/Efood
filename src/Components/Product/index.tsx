@@ -1,19 +1,11 @@
 import { useDispatch } from 'react-redux'
 import close from '../../assets/icons/close.png'
-import { CardapioItem } from '../../Pages/Home'
 
 import { add, open } from '../../Store/reducers/cart'
 
-import {
-  Carde,
-  CardeInfos,
-  CardeHeader,
-  CardeImage,
-  ButtonLink,
-  Modal,
-  ModalConteudo
-} from './stylles'
+import * as S from './stylles'
 import { useState } from 'react'
+import { parseToBrl } from '../Utils'
 
 type Props = {
   id: number
@@ -22,13 +14,6 @@ type Props = {
   foto: string
   porcao: string
   preco: number
-}
-
-export const formataPreco = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
 }
 
 const Product = ({ nome, descricao, foto, porcao, preco }: Props) => {
@@ -50,22 +35,22 @@ const Product = ({ nome, descricao, foto, porcao, preco }: Props) => {
 
   return (
     <>
-      <Carde>
-        <CardeImage>
+      <S.Carde>
+        <S.CardeImage>
           <img src={foto} alt="Foto do prato" />
-        </CardeImage>
-        <CardeInfos>
-          <CardeHeader>
+        </S.CardeImage>
+        <S.CardeInfos>
+          <S.CardeHeader>
             <h3>{nome}</h3>
-          </CardeHeader>
+          </S.CardeHeader>
           <p>{compactaDescricao(descricao)}</p>
-          <ButtonLink onClick={() => setModalEstaAberto(true)}>
+          <S.ButtonLink onClick={() => setModalEstaAberto(true)}>
             Adicionar ao Carrinho
-          </ButtonLink>
-        </CardeInfos>
-      </Carde>
-      <Modal className={modalEstaAberto ? 'Visible' : ''}>
-        <ModalConteudo>
+          </S.ButtonLink>
+        </S.CardeInfos>
+      </S.Carde>
+      <S.Modal className={modalEstaAberto ? 'Visible' : ''}>
+        <S.ModalConteudo>
           <div className="container">
             <img src={foto} alt="Foto do prato" />
             <div>
@@ -80,16 +65,16 @@ const Product = ({ nome, descricao, foto, porcao, preco }: Props) => {
               <p>{descricao}</p>
               <p>Serve: {porcao}</p>
               <button onClick={addToCart}>
-                {`Adicionar ao Carrinho - ${formataPreco(preco)}`}
+                {`Adicionar ao Carrinho - ${parseToBrl(preco)}`}
               </button>
             </div>
           </div>
-        </ModalConteudo>
+        </S.ModalConteudo>
         <div
           className="overlay"
           onClick={() => setModalEstaAberto(false)}
         ></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

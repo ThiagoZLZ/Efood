@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { Link } from 'react-router-dom'
 
 import { TagContainer } from '../Tag/styles'
@@ -9,19 +9,19 @@ type CardProps = {
 }
 
 export const Card = styled.div<CardProps>`
-  border: 2px solid ${cores.vermelho};
+  border: 2px solid ${colors.red};
   max-width: 472px;
   width: 100%;
   font-size: 14px;
   overflow: hidden;
-  background-color: ${cores.branco};
+  background-color: ${colors.white};
   position: relative;
 
   ${(props) =>
     props.PratosF &&
     `
-      background-color: ${cores.vermelho};
-      color: ${cores.branco};
+      background-color: ${colors.red};
+      color: ${colors.white};
       padding: 8px;
     `}
 
@@ -84,10 +84,10 @@ export const StyledLink = styled(Link)`
 `
 
 export const ButtonLink = styled(Link)`
-  color: ${cores.branco};
-  background-color: ${cores.vermelho};
+  color: ${colors.white};
+  background-color: ${colors.red};
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 12px 16px;
   font-weight: 700;
   font-family: Roboto, sans-serif;
   border: none;
@@ -107,7 +107,7 @@ export const TagDestaque = styled.span`
   top: 16px;
   right: 90px;
   padding: 8px;
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   color: white;
   font-size: 12px;
   border-radius: 10%;
@@ -118,7 +118,7 @@ export const TagNacionalidade = styled.span`
   top: 16px;
   right: 16px;
   padding: 8px 10px;
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   color: white;
   font-size: 12px;
   border-radius: 10%;

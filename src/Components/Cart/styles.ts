@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import lixeira from '../../assets/icons/lixeira-de-reciclagem.png'
 
 export const Overlay = styled.div`
@@ -28,7 +28,7 @@ export const CartContainer = styled.div`
 `
 
 export const Sidebar = styled.aside`
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   max-width: 360px;
   width: 100%;
   max-height: 1624px;
@@ -42,7 +42,7 @@ export const Sidebar = styled.aside`
   }
 
   li {
-    background-color: ${cores.rosa};
+    background-color: ${colors.pink};
     padding: 8px;
     margin-bottom: 16px;
   }
@@ -52,7 +52,7 @@ export const Sidebar = styled.aside`
   }
 
   h2 {
-    color: ${cores.vermelho};
+    color: ${colors.red};
     font-family: Roboto;
     font-size: 18px;
     font-weight: 900;
@@ -64,7 +64,7 @@ export const Sidebar = styled.aside`
 export const Price = styled.p`
   font-weight: bold;
   font-size: 14px;
-  color: ${cores.vermelho};
+  color: ${colors.red};
 `
 
 export const Total = styled.p`
@@ -72,7 +72,7 @@ export const Total = styled.p`
   font-size: 14px;
   font-weight: 700;
   line-height: 16.41px;
-  color: ${cores.branco};
+  color: ${colors.white};
   margin: 40px 0 16px 0;
   display: flex;
   justify-content: space-between;
@@ -88,7 +88,7 @@ export const Total = styled.p`
 
 export const CartItem = styled.li`
   display: flex;
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
   margin: 16px 0;
   position: relative;
 
@@ -100,7 +100,7 @@ export const CartItem = styled.li`
   }
 
   h3 {
-    color: ${cores.vermelho};
+    color: ${colors.red};
     font-family: Roboto;
     font-size: 18px;
     font-weight: 900;
@@ -124,10 +124,10 @@ export const CartItem = styled.li`
 export const Botao = styled.button`
   width: 344px;
   height: 24px;
-  background-color: ${cores.rosa};
+  background-color: ${colors.pink};
   border: none;
   font-family: Roboto;
-  color: ${cores.vermelho};
+  color: ${colors.red};
   font-weight: 900;
   padding: 20px 0 20px 0;
   cursor: pointer;
@@ -136,4 +136,8 @@ export const Botao = styled.button`
   justify-content: center;
   align-items: center;
   text-align: center; /* Alinha o texto dentro do elemento */
+`
+export const Mensagem = styled.p`
+  color: ${colors.white};
+  font-size: 25px;
 `

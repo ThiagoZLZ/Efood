@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react'
-import { Imagem, Texto, Comida } from './styles'
-import { Restaurante } from '../../Pages/Home'
+import * as S from './styles'
 import { useParams } from 'react-router-dom'
 
 import { useGetFeatureEfoodQuery } from '../../Services/api'
@@ -11,7 +9,7 @@ type Params = {
 
 const Banner = () => {
   const { id } = useParams<Params>()
-  const { data: pratos, isLoading } = useGetFeatureEfoodQuery(id || '')
+  const { data: pratos } = useGetFeatureEfoodQuery(id || '')
 
   // Exibe um fallback se 'pratos' ainda não foi carregado
   if (!pratos) {
@@ -19,12 +17,12 @@ const Banner = () => {
   }
 
   return (
-    <Imagem style={{ backgroundImage: `url(${pratos.capa})` }}>
+    <S.Imagem style={{ backgroundImage: `url(${pratos.capa})` }}>
       <div className="container">
-        <Comida>{pratos.tipo}</Comida>
-        <Texto>{pratos.titulo}</Texto>
+        <S.Comida>{pratos.tipo}</S.Comida>
+        <S.Texto>{pratos.titulo}</S.Texto>
       </div>
-    </Imagem>
+    </S.Imagem>
   )
 }
 

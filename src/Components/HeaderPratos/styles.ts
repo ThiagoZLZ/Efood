@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import fundo from '../../assets/images/BannerImgHome.png'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const HeaderStyle = styled.header`
   background-image: url(${fundo});
@@ -24,7 +24,7 @@ export const LinkRestaurantes = styled.a`
   font-size: 18px;
   font-weight: bold;
   text-decoration: none;
-  color: ${cores.vermelho};
+  color: ${colors.red};
   margin-top: 39px;
 `
 
@@ -34,5 +34,5 @@ export const TextCart = styled.a`
   margin-top: 39px;
   cursor: pointer;
   text-decoration: none;
-  color: ${cores.vermelho};
+  color: ${colors.red};
 `

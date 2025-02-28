@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 import { Link } from 'react-router-dom'
 
 type CardProps = {
@@ -7,14 +7,14 @@ type CardProps = {
 }
 
 export const Carde = styled.div<CardProps>`
-  border: 8px solid ${cores.vermelho};
+  border: 8px solid ${colors.red};
   max-width: 472px;
   width: 100%;
   font-size: 14px;
   overflow: hidden;
-  background-color: ${cores.vermelho};
+  background-color: ${colors.red};
   position: relative;
-  color: ${cores.branco};
+  color: ${colors.white};
   }
 `
 
@@ -45,8 +45,8 @@ export const CardeHeader = styled.div`
 
 export const CardeInfos = styled.div`
   padding: 8px;
-  border: 1px solid ${cores.vermelho};
-  color: ${cores.branco};
+  border: 1px solid ${colors.red};
+  color: ${colors.white};
 
   p {
     margin: 16px 0;
@@ -68,11 +68,11 @@ export const StyledLink = styled(Link)`
 `
 
 export const ButtonLink = styled.button`
-  color: ${cores.branco};
-  background-color: ${cores.rosa};
+  color: ${colors.white};
+  background-color: ${colors.pink};
   text-decoration: none;
   padding: 8px 75px;
-  color: ${cores.vermelho};
+  color: ${colors.red};
   font-weight: bold;
   font-family: Roboto, sans-serif;
   border: none;
@@ -118,8 +118,8 @@ export const ModalConteudo = styled.div`
   > div {
     display: flex;
     padding: 0 0 32px 32px;
-    background-color: ${cores.vermelho};
-    color: ${cores.branco};
+    background-color: ${colors.red};
+    color: ${colors.white};
 
     > img {
       width: 290px;
@@ -160,8 +160,8 @@ export const ModalConteudo = styled.div`
         padding: 4px 7px;
         font-size: 14px;
         font-weight: 700;
-        background-color: ${cores.rosa};
-        color: ${cores.vermelho};
+        background-color: ${colors.pink};
+        color: ${colors.red};
         cursor: pointer;
       }
     }

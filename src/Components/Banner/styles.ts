@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const Imagem = styled.div`
   width: 100%;
@@ -24,7 +24,7 @@ export const Imagem = styled.div`
   }
 `
 export const Comida = styled.h2`
-  color: ${cores.branco};
+  color: ${colors.white};
   font-size: 32px;
   font-weight: 100;
   max-width: 676px;
@@ -36,7 +36,7 @@ export const Comida = styled.h2`
   left: 25%;
 `
 export const Texto = styled.h2`
-  color: ${cores.branco};
+  color: ${colors.white};
   font-size: 42px;
   max-width: 676px;
   font-family: Roboto, sans-serif;

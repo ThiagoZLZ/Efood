@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
 export const List = styled.div<{ Pratos?: boolean }>`
   max-width: 1024px;

@@ -1,15 +1,6 @@
 import estrela from '../../assets/icons/estrela.png'
 
-import {
-  Card,
-  CardInfos,
-  CardHeader,
-  CardImage,
-  StyledLink,
-  ButtonLink,
-  TagDestaque,
-  TagNacionalidade
-} from './styles'
+import * as S from './styles'
 
 type Props = {
   titulo: string
@@ -30,34 +21,33 @@ const Restaurant = ({
   descricao,
   capa,
   tipo,
-  destaque,
   id,
   link
 }: Props) => {
   return (
     <>
-      <Card>
-        <StyledLink to={link || '#'}>
-          <CardImage>
+      <S.Card>
+        <S.StyledLink to={link || '#'}>
+          <S.CardImage>
             <img src={capa} alt="Foto do restaurante" />
             {tipo.includes('italiana') && (
-              <TagDestaque>Destaque da semana</TagDestaque>
+              <S.TagDestaque>Destaque da semana</S.TagDestaque>
             )}
-            <TagNacionalidade>{tipo}</TagNacionalidade>
-          </CardImage>
-          <CardInfos>
-            <CardHeader>
+            <S.TagNacionalidade>{tipo}</S.TagNacionalidade>
+          </S.CardImage>
+          <S.CardInfos>
+            <S.CardHeader>
               <h3>{titulo}</h3>
               <div>
                 <h3>{avaliacao}</h3>
                 <img src={estrela} alt="avaliação" />
               </div>
-            </CardHeader>
+            </S.CardHeader>
             <p>{descricao}</p>
-            <ButtonLink to={`/pratos/${id}`}>Saiba mais</ButtonLink>
-          </CardInfos>
-        </StyledLink>
-      </Card>
+            <S.ButtonLink to={`/pratos/${id}`}>Saiba mais</S.ButtonLink>
+          </S.CardInfos>
+        </S.StyledLink>
+      </S.Card>
     </>
   )
 }

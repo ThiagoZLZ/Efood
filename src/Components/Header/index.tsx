@@ -1,13 +1,13 @@
 import React from 'react'
-import { HomeContainer, Logo, Texto } from './styles'
+import * as S from './styles'
 import logo from '../../assets/icons/logo.png'
 
 const Home = () => (
   <>
-    <HomeContainer>
-      <Logo src={logo} alt="Logo do efood" />
-      <Texto>Viva experiências gastronômicas no conforto da sua casa</Texto>
-    </HomeContainer>
+    <S.HomeContainer>
+      <S.Logo src={logo} alt="Logo do efood" />
+      <S.Texto>Viva experiências gastronômicas no conforto da sua casa</S.Texto>
+    </S.HomeContainer>
   </>
 )
 export default Home
